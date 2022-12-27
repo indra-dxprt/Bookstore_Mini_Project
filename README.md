@@ -1,5 +1,5 @@
 # Bookstore_Mini_Project
- Language used- Kotlin, Framwoek- Spring
+ Language used- Kotlin, Framwoek- Spring, Database- PostgreSQL
  
 ## Objective
  This project is about implementing a Bookstore REST API.
@@ -16,4 +16,4 @@
    - CRUD operation for the book resource
    - User can unpublish only their own book
    - User named **_Darth Vader_** can not publish his work on book by **Wookie Books**
- * implementation of API tests for all endpoints
+ * Implementation of API tests for all endpoints
