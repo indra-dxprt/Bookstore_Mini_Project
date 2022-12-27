@@ -20,7 +20,7 @@
  
  ## Steps to run:
  * Change in the application.yml(username and password for the db connection) to point out the correct database
- * Create table in the Database or run the appdata.sql to create and insert user credentials into the database
+ * Create the database in Postgre.SQL
  * Run the application BooksApplication.kt
  * Run the tests in postman
  * Run The bookserviceTest and userserviceTest for testing the service
