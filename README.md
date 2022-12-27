@@ -1,5 +1,5 @@
 # Bookstore_Mini_Project
  Language used- Kotlin, Framwoek- Spring
  
-# Objective
+## Objective
  This project is about implementing a Bookstore REST API.
