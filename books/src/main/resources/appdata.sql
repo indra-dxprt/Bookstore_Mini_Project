@@ -1,0 +1,2 @@
+INSERT INTO app_user (id, username, password) VALUES (1, 'user', 'password') ON CONFLICT DO NOTHING;
+INSERT INTO app_user (id, username, password) VALUES (2, '_Darth Vader_', 'password') ON CONFLICT DO NOTHING;
