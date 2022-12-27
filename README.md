@@ -3,7 +3,7 @@
  
 ## Objective
  This project is about implementing a Bookstore REST API.
-## Functionalities
+## Functionalities:
  * This RSET API implementation is going to return xml or json data based on the **Content-Type** header
  * There is a custom user model where each user will have a identification number and a username
  * Here is a Book model where each book is having a title, description, author(The custom user model), cover image and price
@@ -17,3 +17,10 @@
    - User can unpublish only their own book
    - User named **_Darth Vader_** can not publish his work on book by **Wookie Books**
  * Implementation of API tests for all endpoints
+ 
+ ## Steps to run:
+ * Change in the application.yml(username and password for the db connection) to point out the correct database
+ * Create table in the Database or run the appdata.sql to create and insert user credentials into the database
+ * Run the application BooksApplication.kt
+ * Run the tests in postman
+ * Run The bookserviceTest and userserviceTest for testing the service
