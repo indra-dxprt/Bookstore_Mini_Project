@@ -10,6 +10,7 @@ import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.userdetails.User
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestHeader
@@ -32,11 +33,18 @@ class AuthenticationController {
         @RequestBody loginDto: LoginDto,
         @RequestHeader(HttpHeaders.CONTENT_TYPE) contentType: String
     ): ResponseEntity<String> {
-        authManager.authenticate(UsernamePasswordAuthenticationToken(loginDto.username, loginDto.password))
-        val user = userService.loadUserByUsername(username = loginDto.username!!)
-        return ResponseEntity
-            .status(HttpStatus.OK)
-            .contentType(MediaType.parseMediaType(contentType))
-            .body(jwtUtils.generateToken(user))
+        val auth = authManager.authenticate(UsernamePasswordAuthenticationToken(loginDto.username, loginDto.password))
+        return if (auth.isAuthenticated) {
+            val user = User(loginDto.username, loginDto.password, auth.authorities)
+            ResponseEntity
+                .status(HttpStatus.OK)
+                .contentType(MediaType.parseMediaType(contentType))
+                .body(jwtUtils.generateToken(user))
+        } else {
+            ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .contentType(MediaType.parseMediaType(contentType))
+                .build()
+        }
     }
 }
